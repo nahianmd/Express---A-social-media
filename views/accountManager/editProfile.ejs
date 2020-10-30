@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Account Manager Information Update Page - Express</title>
+	<style>
+		input[type=text],[type=phone],[type=email],[type=password],[type=date],[type=textarea] {
+			padding:5px;
+			border-radius:5px;
+		}
+	</style>
+</head>
+<body style="background-color:gray;">
+	<div style="height:150px;background-color:rgb(44,237,14);margin-top:0px;">
+		<h1 style="margin-left:50px;">
+			<br/>Update Information - Express
+		</h1>
+		<a href="/accountManager/home" style="margin-left:900px;">Home</a>
+		<a href="#" style="margin-left:10px;">About</a>
+	</div>
+
+	<div style="float:left;width:40%;height:500px;background-color:white;margin-left:350px;padding:20px">
+	
+		<form method="post">
+		
+		<table>
+			<tr>
+				<td style="text-align:right;">
+					User Name : 
+				</td>
+				<td>
+					<input type="text" value="<%= data.username %>" name="name">
+				</td>
+			</tr>
+				<td style="text-align:right;">
+					Bio : 
+				</td>
+				<td>
+					<textarea name="bio" rows="5" cols="40"><%= data.bio %></textarea>
+				</td>
+			<tr>
+				<td style="text-align:right;">
+					Phone : 
+				</td>
+				<td>
+					<input type="phone" value="<%= data.phone %>" name="phn">
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					Email :
+				</td>
+				<td>
+					<input type="email" value="<%= data.mail %>" name="mail">
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					New Password :
+				</td>
+				<td>
+					<input type="password" value="" name="pass1">
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					Confirm Password :
+				</td>
+				<td>
+					<input type="password" value="" name="pass2">
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					Date of Birth :
+				</td>
+				<td>
+					<input type="date" value="<%= data.dob %>" name="dob">
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp
+				</td>
+				<td>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+				</td>
+				<td>
+					<input type="submit" style="border-radius:15px;background-color:dodgerblue;" value="Update Information"> <br/><br/> <a href="#" style="border-radius:15px;background-color:dodgerblue;padding:10px;text-decoration:none">Deactivate Account</a><br/>
+				</td>
+			</tr>
+		</table>
+
+		</form>
+	</div>
+
+</body>
+</html>

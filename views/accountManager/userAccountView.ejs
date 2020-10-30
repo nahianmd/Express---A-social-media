@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= data.username %> - Express</title>
+	<style>
+		a{
+			text-decoration:none;
+			font-weight:bold;
+		}
+		.notif{
+			border-radius:15px;
+			background-color:dodgerblue;
+			padding:10px;
+		}
+		.txt{
+			color:black;
+			display:none;
+		}
+		.sender{
+			border-radius:15px;
+			background-color:lime;
+			padding:10px;
+			display:none;
+		}
+	</style>
+	<script>
+		function notification()
+		{
+			alert("woking");
+			document.getElementById("notify").style.display="none";
+			document.getElementById("notifyTxt").style.display="block";
+			document.getElementById("send").style.display="block";
+		}
+	</script>
+</head>
+<body style="background-color:gray;">
+	
+
+	<div style="float:right;width:60%;background-color:white;margin-right:60px;margin-top:150px;padding:20px;position:relative">
+		<br/>
+			<h4><%= data.username %></h4> (<%= data.userid %>) <hr>
+			Name : <%= data.username %><br/>
+			Phone : <%= data.phone %><br/>
+			Gender : <%= data.gender %><br/>
+			Birthdate: <%= data.dob %><br/>
+			<p style="margin-left:50px;"><span style="font-size:30px;">&#xFF02 </span><%= data.bio %> <span style="font-size:30px;">&#xFF02 </span></p>
+			<hr/>
+			<br/> Posts from users timeline:<br/><br/>
+		<center>
+			<% for(var i=0; i < contentData.length; i++){ %>
+				<div style="width:90%;background-color:rgb(84,84,84);border-radius:15px;padding:15px;text-align:left;margin-top:5px;">
+					<h3><%= data.username %></h3> &#9864 
+					<% if(contentData[i].post_type_id == 40) {%>
+							Public
+					<% } else { %>
+							Private
+					<% } %>
+							&#9864 
+					<% if(contentData[i].post_status_id == 50) {%>
+							Pending
+					<% } else if(contentData[i].post_status_id == 51){ %>
+							Approved
+					<% } else{ %>
+							Reported
+					<% } %>
+					<br/>
+					<%= contentData[i].post_time %><br/><br/>
+					<%= contentData[i].post_text %><br/><br/>
+				</div>
+			<% } %>
+		</center>
+	</div>
+	
+	<div style="width:100%;height:150px;background-color:rgb(44,237,14);margin-top:0px;position:fixed;">
+		<h1 style="margin-left:50px;">
+			<br/><%= data.username %> - Express
+		</h1>
+		<a href="/generalController/logout" style="margin-left:900px;">Logout</a>
+		<a href="/accountManager/home" style="margin-left:10px;">Back</a>
+	</div>
+	
+	<div style="float:left;width:25%;height:500px;background-color:white;margin-left:40px;margin-top:150px;padding:20px;position:fixed;">
+		<center><br/><br/><br/><br/>
+
+		
+			<% if(data.usertype == 20) {%>
+					<p style="border-radius:15px;background-color:lime;padding:10px">" Admin User "</p>
+			<% } else if(data.usertype == 21){ %>
+					<p style="border-radius:15px;background-color:lime;padding:10px">" Content Manager User "</p>
+			<% } else if(data.usertype == 22){ %>
+					<p style="border-radius:15px;background-color:lime;padding:10px">" Account Manager User "</p>
+			<% } else{ %>
+					<p style="border-radius:15px;background-color:lime;padding:10px">" General User "</p>
+			<% } %>
+		
+			<% if(data.acctype == 30) {%>
+					<p style="border-radius:15px;background-color:lime;padding:10px">" Public Account "</p>
+			<% } else if(data.acctype == 31){ %>
+					<p style="border-radius:15px;background-color:lime;padding:10px">" Private Account "</p>
+			<% } else{ %>
+					<p style="border-radius:15px;background-color:lime;padding:10px">" Annonymous Account "</p>
+			<% } %>
+			
+			<% if(data.accstatus == 10) {%>
+					<p style="border-radius:15px;background-color:lime;padding:10px">" Account Activated "</p>
+			<% } else if(data.accstatus == 11){ %>
+					<p style="border-radius:15px;background-color:yellow;padding:10px">" Account Deactivated "</p>
+			<% } else{ %>
+					<p style="border-radius:15px;background-color:red;padding:10px">" Account Blocked "</p>
+			<% } %>
+		
+		
+		<input type="button" class="notif" onclick="notification()" id="notify" value=" Notify User "><br/>
+			<form method="post">
+				<textarea rows="4" cols="40" id="notifyTxt" name="notifyTxt" placeholder="Enter a short message here ..." class="txt"></textarea>
+						<input type="text" value="<%= data.userid %>" name="receiver" style="display:none;">
+							<input type="submit" class="sender" id="send" value=" Send ">
+			</form><br/>
+		
+		</center>
+		<div style="border-radius:15px;background-color:aqua;padding:15px">
+			Action to user :<br/><center>
+			<% if(data.accstatus == 10) {%>
+					<a href="deactive/<%= data.userid %>"> Deactivate </a> | <a href="block/<%= data.userid %>"> Block </a> | <a href="delete/<%= data.userid %>"> Delete </a>
+			<% } else if(data.accstatus == 11){ %>
+					<a href="active/<%= data.userid %>"> Activate </a> | <a href="block/<%= data.userid %>"> Block </a> | <a href="delete/<%= data.userid %>"> Delete </a>
+			<% } else{ %>
+					<a href="active/<%= data.userid %>"> Activate </a> | <a href="delete/<%= data.userid %>"> Delete </a>
+			<% } %>
+			
+			</center>
+		</div>
+	</div>
+</body>
+</html>

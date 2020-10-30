@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create post</title>
+    <link rel="stylesheet" href="../../../static/css/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="../../../static/css/contentManager/createPost/createPost.css">
+</head>
+<body>
+    <!-- navbar content start -->
+    <nav>
+        <div class="home">
+            <a href="">express</a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/contentManager/home">home</a></li>
+                <li><a href="/generalController/logout">logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar content start -->
+
+    <div class="search-container">
+        <form action="/generalController/postCreate" method="POST">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Create new post:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="post" rows="10"></textarea>
+            </div>
+            <button type="submit" class="submit-message">post</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Account Manager Registration Page</title>
+	<style>
+		input[type=text],[type=phone],[type=email],[type=password],[type=date],[type=textarea] {
+			padding:5px;
+			border-radius:5px;
+		}
+	</style>
+</head>
+<body style="background-color:gray;">
+	<div style="height:150px;background-color:rgb(44,237,14);margin-top:0px;">
+		<h1 style="margin-left:50px;">
+			<br/>Manager Registration - Express
+		</h1>
+		<a href="/" style="margin-left:900px;">Express</a>
+		<a href="#" style="margin-left:10px;">About</a>
+	</div>
+
+	<div style="float:left;width:40%;height:500px;background-color:white;margin-left:350px;padding:20px">
+	
+		<form method="post">
+		
+		<table>
+			<tr>
+				<td style="text-align:right;">
+					User Name : 
+				</td>
+				<td>
+					<input type="text" placeholder="Enter your name." name="name">
+				</td>
+			</tr>
+				<td style="text-align:right;">
+					Bio : 
+				</td>
+				<td>
+					<textarea name="bio" rows="5" cols="40" placeholder="Enter about yourself."></textarea>
+				</td>
+			<tr>
+				<td style="text-align:right;">
+					Phone : 
+				</td>
+				<td>
+					<input type="phone" placeholder="01XXX-XXXXXX" name="phn">
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					Email :
+				</td>
+				<td>
+					<input onkeyup= "return keyUpCheck()" id="email" type="email" placeholder="example@example.com" name="mail">
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					New Password :
+				</td>
+				<td>
+					<input type="password" placeholder="**************" name="pass1">
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					Confirm Password :
+				</td>
+				<td>
+					<input type="password" placeholder="**************" name="pass2">
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					Date of Birth :
+				</td>
+				<td>
+					<input type="date" name="dob">
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					Gender :
+				</td>
+				<td>
+					<input type="radio" value="male" name="gender" checked>Male <br/>
+					<input type="radio" value="female" name="gender" >Female <br/>
+					<input type="radio" value="other" name="gender" >Other
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp
+				</td>
+				<td>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+				</td>
+				<td>
+					<input id="submit" onclick= "return check()" type="submit" style="border-radius:15px;background-color:dodgerblue;" value="Register For Free"> <br/><br/> 
+					<a href="/" style="border-radius:15px;background-color:dodgerblue;padding:10px;text-decoration:none">All Ready Have An Account ?</a><br/>
+				</td>
+			</tr>
+		</table>
+
+		</form>
+	</div>
+    <script src="../static/js/lib/jquery-lib-min.js"></script>
+    <script src="../static/js/general/registrationCheck.js"></script>
+</body>
+</html>

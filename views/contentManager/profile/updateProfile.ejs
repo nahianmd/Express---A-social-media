@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/css/bootstrap.css">
+    <title>account update</title>
+</head>
+<body>
+    <!-- navbar content start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">express</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/contentManager/profile/viewProfile"><%=user.username%> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/generalController/logout">logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar content start -->
+    <section style="width: 800px; margin: 0 auto;">
+        <h1 style="text-align: center;">update profile information</h1>
+        <form method="POST">
+            <table style="width: 600px; margin: 0 auto;">
+                <tr>
+                    <td class="property">ID:</td>
+                    <td class="value"><input readonly class="form-control" id="user_id" type="text" name="user_id" value="<%=user.user_id%>"></td>
+                </tr>
+                <tr>
+                    <td class="property">NAME:</td>
+                    <td class="value"><input class="form-control" id="username" type="text" name="username" value="<%=user.username%>"></td>
+                </tr>
+                <tr>
+                    <td class="property">EMAIL:</td>
+                    <td class="value"><input class="form-control" id="email" type="text" name="email" value="<%=user.email%>"></td>
+                    <td><span id="emailError"></span></td>
+                </tr>
+                <tr>
+                    <td class="property">PHONE NUMBER:</td>
+                    <td class="value"><input class="form-control" id="phone_number" type="text" name="phone_number" value="<%=user.phone_number%>"></td>
+                </tr>
+                <tr>
+                    <td class="property">GENDER:</td>
+                    <td class="value"><input readonly class="form-control" id="gender" type="text" name="gender" value="<%=user.gender%>"></td>
+                </tr>
+                <tr>
+                    <td class="property">BIRTHDATE:</td>
+                    <td class="value"><input class="form-control" id="birthdate" type="date" name="birthdate" value="<%=user.birthdate%>"></td>
+                </tr>
+                <tr>
+                    <td class="property">BIO:</td>
+                    <td class="value"><input class="form-control" id="bio" type="text" name="bio" value="<%=user.bio%>"></td>
+                </tr>
+                <tr>
+                    <td class="property">WEBSITE:</td>
+                    <td class="value"><input class="form-control" id="website" type="text" name="website" value="<%=user.website%>"></td>
+                </tr>
+                <tr>
+                    <td class="property">ADDRESS:</td>
+                    <td class="value"><input class="form-control" id="address" type="text" name="address" value="<%=user.address%>"></td>
+                </tr>
+                <tr>
+                    <td class="property">PASSWORD:</td>
+                    <td class="value"><input class="form-control" id="password" type="password" name="password" value="<%=user.password%>"></td>
+                </tr>
+                <tr>
+                    <td class="property">CONFIRM PASSWORD:</td>
+                    <td class="value"><input class="form-control" id="confirm_password" type="password" name="confirm_password" value=""></td>
+                </tr>
+                <tr>
+                    <td class="property"></td>
+                    <td class="value"><input type="submit" class="btn btn-primary" id="submit" onclick= "return check()" name="submit" value="submit"/></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+    <script src="../../../static/js/lib/jquery-lib-min.js"></script>
+    <script src="../../../static/js/contentManager/updateProfile.js"></script>
+</body>
+</html>

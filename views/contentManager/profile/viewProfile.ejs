@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../static/css/contentManager/profile/viewProfile.css">
+    <title>content manager profile</title>
+</head>
+<body>
+    <!-- navbar content start -->
+    <nav>
+        <div class="home">
+            <a href="">express</a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/contentManager/home">home</a></li>
+                <li><a href="/generalController/logout">logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar content start -->
+    <section class="user-details">
+        <table>
+            <tr>
+                <td class="property">ID:</td>
+                <td class="value"><%=user.user_id%></td>
+            </tr>
+            <tr>
+                <td class="property">NAME:</td>
+                <td class="value"><%=user.username%></td>
+            </tr>
+            <tr>
+                <td class="property">EMAIL:</td>
+                <td class="value"><%=user.email%></td>
+            </tr>
+            <tr>
+                <td class="property">PHONE NUMBER:</td>
+                <td class="value"><%=user.phone_number%></td>
+            </tr>
+            <tr>
+                <td class="property">GENDER:</td>
+                <td class="value"><%=user.gender%></td>
+            </tr>
+            <tr>
+                <td class="property">BIRTHDATE:</td>
+                <td class="value"><%=user.birthdate%></td>
+            </tr>
+            <tr>
+                <td class="property">BIO:</td>
+                <td class="value"><%=user.bio%></td>
+            </tr>
+            <tr>
+                <td class="property">WEBSITE:</td>
+                <td class="value"><%=user.website%></td>
+            </tr>
+            <tr>
+                <td class="property">ADDRESS:</td>
+                <td class="value"><%=user.address%></td>
+            </tr>
+        </table>
+        <div class="button">
+            <div class="update"><a href="/contentManager/profile/updateProfile">update</a></div>
+            <div class="delete"><a href="">deactivate</a></div>
+        </div>
+    </section>
+    
+</body>
+</html>

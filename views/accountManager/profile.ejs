@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile Page - Account Manager</title>
+	<style>
+		a{
+			text-decoration:none;
+		}
+	</style>
+</head>
+<body style="background-color:gray;">
+	<div style="height:150px;background-color:rgb(44,237,14);margin-top:0px;">
+		<h1 style="margin-left:50px;">
+			<br/>Express Profile - Account Manager
+		</h1>
+		<a href="/generalController/logout" style="margin-left:900px;">Logout</a>
+		<a href="/accountManager/home" style="margin-left:10px;">Back</a>
+	</div>
+
+	<div style="float:left;width:60%;height:500px;background-color:white;margin-left:200px;padding:20px">
+		<br/>
+			Profile information of - <h3><%= data.username %></h3> <hr>
+			Name : <%= data.username %><br/>
+			email : <%= data.mail %> <br/>
+			Phone : <%= data.phone %><br/>
+			Username : <%= data.username %> <br/>
+			Gender : <%= data.gender %><br/>
+			Birthdate: <%= data.dob %><br/>
+			Bio: <p style="margin-left:50px;"><span style="font-size:30px;">&#xFF02 </span><%= data.bio %> <span style="font-size:30px;">&#xFF02 </span></p><br/><br/>
+			<a href="/accountManager/editProfile">Update Information</a> &nbsp |  &nbsp
+			<% if(data.account_status_id == 10) {%>
+					<a href="profile/deactive/">Deactivate Account</a>
+			<% } else { %>
+					<a href="profile/active/">Activate Account</a>
+			<% } %>
+			<!--<input type="button" style="border-radius:15px;background-color:dodgerblue;" value="Edit Information">-->
+			<hr/>
+			<% for(var i=0; i < contentData.length; i++){ %>	
+				<div style="width:90%;background-color:rgb(84,84,84);border-radius:15px;padding:15px">
+					<h3><%= data.username %></h3> &#9864 
+					<% if(contentData[i].post_type_id == 40) {%>
+							Public
+					<% } else { %>
+							Private
+					<% } %>
+							&#9864 
+					<% if(contentData[i].post_status_id == 50) {%>
+							Pending
+					<% } else if(contentData[i].post_status_id == 51){ %>
+							Approved
+					<% } else{ %>
+							Reported
+					<% } %>
+					<br/>
+					<%= contentData[i].post_time %><br/><br/>
+					<%= contentData[i].post_text %><br/><br/>
+				</div>
+			<% } %>	
+				
+			</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>content request</title>
+    <link rel="stylesheet" href="../../../static/css/contentManager/contentView/contentRequest.css">
+</head>
+<body>
+    <!-- navbar content start -->
+    <nav>
+        <div class="home">
+            <a href="#">express</a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/contentManager/home">home</a></li>
+                <li><a href="/generalController/logout">logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar content start -->
+
+    <!-- request post content start -->
+    <section>
+        <div class="row">
+            <div class="col1"></div>
+
+            <div class="col2">
+                <% for(var i=0; i < userList.length; i++){ 
+                    if(userList[i].post_status_name =="pending"){
+                        var millisecondInInteger = parseInt(userList[i].post_time);
+                        var dateObject = new Date(millisecondInInteger);
+                        var timeAndDate = dateObject.toLocaleString(); %>
+                        <div class="post">
+                            <h4><a href=""><%= userList[i].username %></a></h4>
+                            <span><%= userList[i].post_id %></span>
+                            <span><%= userList[i].post_type_name %></span>
+                            <span><%= userList[i].post_status_name %></span>
+                            <span><%= timeAndDate %></span>
+                            <p><%= userList[i].post_text %></p>
+                            <a href="/contentManager/contentRequest/approve/<%= userList[i].post_id %>" class="approve">approve</a>
+                            <a href="/contentManager/contentRequest/delete/<%= userList[i].post_id %>" class="delete">delete</a>
+                            <a href="/contentManager/contentRequest/warning/<%= userList[i].post_id %>" class="warning">warning</a>
+                            <a href="/contentManager/contentRequest/block/<%= userList[i].post_id %>" class="block">block request</a>
+                            <a href="/contentManager/contentRequest/report/<%= userList[i].post_id %>" class="report">report</a>
+                        </div>
+                    <%
+                        millisecondInInteger = null;
+                        dateObject = null;
+                        timeAndDate = null;
+                    }
+                }%>
+            </div>
+            <div class="col3"></div>
+        </div>
+    </section>
+    <!-- request post content end -->
+</body>
+</html>

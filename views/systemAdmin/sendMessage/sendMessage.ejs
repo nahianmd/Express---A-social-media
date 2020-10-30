@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin send message page</title>
+    <link rel="stylesheet" href="../../../static/css/systemAdmin/sendMessage/sendMessage.css">
+    <link rel="stylesheet" href="../../../static/css/css/all.min.css">
+</head>
+<body>
+    <!-- navbar content start -->
+    <nav>
+        <div class="home">
+            <a href="">express</a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/systemAdmin/home">home</a></li>
+                <li><a href="/generalController/logout">logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar content start -->
+
+    <div class="search-container">
+        <form>
+          <input type="text" placeholder="Search.." name="search" class="search">
+          <button type="submit" class="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <form>
+            <input type="text" placeholder="sender name" name="sender-name" class="sender-name" disabled>
+            <input type="text" placeholder="" name="message" class="message">
+            <br>
+            <button type="submit" class="submit-message">send message</button>
+        </form>
+    </div>
+
+</body>
+</html>

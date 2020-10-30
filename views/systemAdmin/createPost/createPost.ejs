@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin create post</title>
+    <link rel="stylesheet" href="../../../static/css/systemAdmin/createPost/createPost.css">
+    <link rel="stylesheet" href="../../../static/css/css/all.min.css">
+</head>
+<body>
+    <!-- navbar content start -->
+    <nav>
+        <div class="home">
+            <a href="">express</a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/systemAdmin/home">home</a></li>
+                <li><a href="/generalController/logout">logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar content start -->
+
+    <div class="search-container">
+        <form>
+            <p>Please select post type:</p>
+            <input type="radio" id="public" name="post" value="public">
+            <label for="public">public</label>
+            <input type="radio" id="anonymous" name="post" value="anonymous">
+            <label for="anonymous">anonymous</label><br>
+            <input type="text" placeholder="" name="message" class="message">
+            <br>
+            <button type="submit" class="submit-message">post</button>
+        </form>
+    </div>
+</body>
+</html>

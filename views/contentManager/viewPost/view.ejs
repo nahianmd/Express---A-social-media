@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view post page</title>
+    <script src="../../../static/js/lib/jquery-lib-min.js"></script>
+    <link rel="stylesheet" href="../../../static/css/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../static/css/contentManager/viewPost/view.css">
+
+    <style>
+        .post-div{
+            margin: 10px;
+            padding: 20px;
+            background-color: #dfdfdf;
+        }
+    </style>
+    <script>
+        function searchWithKey(){
+            $(document).ready(function(){
+                $(".post").empty();
+                var str = $('#searchBar').val();
+                console.log('/contentManager/searchPost/search/'+str);
+                $.ajax({
+                    url: '/contentManager/searchPost/search/',
+                    type: 'POST',
+                    data: {
+                        value: str
+                    },
+                    success:(function(data){
+                        // console.log(data[0].post_text);
+                        var results = JSON.parse(data);
+                        for(var i = 0; i < results.length; i++){
+                            
+                            var millisecondInInteger = parseInt(results[i].post_time);
+                            var dateObject = new Date(millisecondInInteger);
+                            var timeAndDate = dateObject.toLocaleString();
+                            $('.post').append(
+                                "<div class='post-div'><h2>"+results[i].username+"</h2><h5>"+results[i].post_id + " " + results[i].post_type_name + " " + timeAndDate +"</h5><p>"+results[i].post_text+"</p></div>"
+                            );
+                            millisecondInInteger = null;
+                            dateObject = null;
+                            timeAndDate = null;
+                        }
+                    })
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="searchWithKey()">
+    <!-- navbar content start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">express</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/contentManager/home">home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/generalController/logout">logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar content start -->
+
+    <!-- request post content start -->
+    <section>
+        <div class="row">
+            <div class="col1"></div>
+            <div class="col2">
+                <div class="search-container">
+                    <form>
+                      <input type="text" placeholder="Search.." name="search" onkeyup="searchWithKey()" id="searchBar" class="search">
+                    </form>
+                </div>
+                <div class="post"></div>
+            </div>
+            <div class="col3"></div>
+        </div>
+    </section>
+    <!-- request post content end -->
+    <script src="../../../static/js/lib/jquery-lib-min.js"></script>
+</body>
+</html>
